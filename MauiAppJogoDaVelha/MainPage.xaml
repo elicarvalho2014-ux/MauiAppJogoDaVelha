@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiAppJogoDaVelha.MainPage">
+             x:Class="MauiAppJogoDaVelha.MainPage"
+             Shell.NavBarIsVisible="False">
 
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
@@ -28,8 +29,13 @@
           ColumnSpacing="10" RowSpacing="10" Padding="10">
 
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" 
-               Text="Jogo da Velha" />
-
+               Text="Jogo da Velha" 
+               TextColor="White"
+               FontSize="32"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center" />
+        
         <Button x:Name="btn10" Grid.Row="1" Grid.Column="0" Clicked="Button_Clicked" />
         <Button x:Name="btn11" Grid.Row="1" Grid.Column="1" Clicked="Button_Clicked" />
         <Button x:Name="btn12" Grid.Row="1" Grid.Column="2" Clicked="Button_Clicked" />

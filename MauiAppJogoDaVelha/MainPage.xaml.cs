@@ -9,7 +9,7 @@
             InitializeComponent();
         }
 
-        private void Button_Clicked(object? sender, EventArgs e)
+        private async void Button_Clicked(object? sender, EventArgs e)
         {
             Button btn = (Button)sender;
 
@@ -24,10 +24,52 @@
                 btn.Text = "0";
                 vez = "X";
             }
-            
-            if(btn10.Text == "X" && btn11.Text == "X" && btn12.Text == "X")
+
+            // Jogador "X"
+            // Horizontal:
+            if ((btn10.Text == "X" && btn11.Text == "X" && btn12.Text == "X") ||
+                (btn13.Text == "X" && btn14.Text == "X" && btn15.Text == "X") ||
+                (btn16.Text == "X" && btn17.Text == "X" && btn18.Text == "X") ||
+             // Vertical:
+                (btn10.Text == "X" && btn13.Text == "X" && btn16.Text == "X") ||
+                (btn11.Text == "X" && btn14.Text == "X" && btn17.Text == "X") ||
+                (btn12.Text == "X" && btn15.Text == "X" && btn18.Text == "X") ||
+            // Diagonal:
+                (btn10.Text == "X" && btn14.Text == "X" && btn18.Text == "X") ||
+                (btn12.Text == "X" && btn14.Text == "X" && btn16.Text == "X"))
             {
                 await DisplayAlertAsync("Parabéns!!!", "O jogador X venceu!!", "OK");
+                Zerar();
+                return;
+            }
+
+            // Jogador "0"
+            // Horizontal:
+            if ((btn10.Text == "0" && btn11.Text == "0" && btn12.Text == "0") ||
+                (btn13.Text == "0" && btn14.Text == "0" && btn15.Text == "0") ||
+                (btn16.Text == "0" && btn17.Text == "0" && btn18.Text == "0") ||
+                // Vertical:
+                (btn10.Text == "0" && btn13.Text == "0" && btn16.Text == "0") ||
+                (btn11.Text == "0" && btn14.Text == "0" && btn17.Text == "0") ||
+                (btn12.Text == "0" && btn15.Text == "0" && btn18.Text == "0") ||
+            // Diagonal:
+                (btn10.Text == "0" && btn14.Text == "0" && btn18.Text == "0") ||
+                (btn12.Text == "0" && btn14.Text == "0" && btn16.Text == "0"))
+            {
+                await DisplayAlertAsync("Parabéns!!!", "O jogador 0 venceu!!", "OK");
+                Zerar();
+                return;
+
+            }
+
+            // Empate "Deu Velha"
+            if (!btn10.IsEnabled && !btn11.IsEnabled && !btn12.IsEnabled &&
+            !btn13.IsEnabled && !btn14.IsEnabled && !btn15.IsEnabled &&
+            !btn16.IsEnabled && !btn17.IsEnabled && !btn18.IsEnabled)
+            {
+                await DisplayAlertAsync("Fim de Jogo", "Deu velha!", "OK");
+                Zerar();
+                return;
             }
 
         }
